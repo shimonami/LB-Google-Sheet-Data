@@ -1,0 +1,62 @@
+[extension_name]
+Google Sheet Data
+[insert_external]
+<div><p><a href="https://github.com/shimonami/LB-Google-Sheet-Data" target=_blank>Google Sheet Data</a> 0.0.1 extension is installed.</p></div>
+[insert_command]
+lioranboardclient.send('{\
+  "type":"MESSAGE",\
+  "topic":"ExtensionCommand",\
+  "name":"Google Sheet Data",\
+  "boxcount":6,\
+  "boxname1":"api_key",\
+  "boxtype1":"string",\
+  "boxname2":"sheet_id",\
+  "boxtype2":"string",\
+  "boxname3":"range",\
+  "boxtype3":"string",\
+  "boxname4":"dimension",\
+  "boxtype4":"string",\
+  "boxname5":"render",\
+  "boxtype5":"string",\
+  "boxname6":"row_number",\
+  "boxtype6":"string"\
+}');
+
+[insert_hook]
+case "GoogleSheetData": {
+  getSheetValue(
+    LioranBoardJSON.api_key,
+    LioranBoardJSON.sheet_id,
+    LioranBoardJSON.range,
+    LioranBoardJSON.dimension,
+    LioranBoardJSON.render,
+    LioranBoardJSON.row_number
+  );
+}break
+
+[insert_script]
+function getSheetValue(apiKey, spreadsheetId, range, majorDimension, valueRenderOption, rowOrColumnNumber){
+  // TODO: Check if there is a way to get variable from Lioran
+  // const getApiKey = lioranboardclient.send('{"type":"MESSAGE","topic":"GetVariable","variable":"GOOGLE_API_KEY","datatype":"string"}');
+
+  fetch(`https://content-sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?majorDimension=${majorDimension}&valueRenderOption=${valueRenderOption}&key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+      const values = data.values[rowOrColumnNumber - 1];
+
+      values.forEach((value, index) => {
+        lioranboardclient.send(`{\
+          "type":"MESSAGE",\
+          "topic":"AddStack",\
+          "name":"SheetValuesStack",\
+          "position":"${index}",\
+          "value":"${value}"\
+        }`);
+      });
+    })
+    .catch(error => {
+      console.log('Error on google spreadsheet extension', error);
+      lioranboardclient.send('{"type"="MESSAGE","topic"="AlertMessage","message"="Google Sheet extension couldn\'t get the required sheet values."}');
+    });
+}
+[insert_over]
