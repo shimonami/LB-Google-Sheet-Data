@@ -1,3 +1,7 @@
+<a href="https://twitch.tv/sexyguchi" target=_blank>
+  <img src="https://img.shields.io/twitch/status/sexyguchi?color=blueviolet&label=twitch.com%2Fsexyguchi&logo=twitch&logoColor=white&style=for-the-badge" alt="follow us!">
+</a>
+
 # LB-Google-Sheet-Data
 A plugin to get Google Sheet data on Lioran Board
 
