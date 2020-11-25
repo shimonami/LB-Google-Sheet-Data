@@ -1,5 +1,5 @@
-<a href="https://twitch.tv/sexyguchi" target=_blank>
-  <img src="https://img.shields.io/twitch/status/sexyguchi?color=blueviolet&label=twitch.com%2Fsexyguchi&logo=twitch&logoColor=white&style=for-the-badge" alt="follow us!">
+<a href="https://twitch.tv/sexyguchitv" target=_blank>
+  <img src="https://img.shields.io/twitch/status/sexyguchitv?color=blueviolet&label=twitch.com%2Fsexyguchitv&logo=twitch&logoColor=white&style=for-the-badge" alt="follow us!">
 </a>
 
 # LB-Google-Sheet-Data
