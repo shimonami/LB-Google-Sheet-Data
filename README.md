@@ -1,8 +1,4 @@
-<a href="https://twitch.tv/sexyguchitv" target=_blank>
-  <img src="https://img.shields.io/twitch/status/sexyguchitv?color=blueviolet&label=twitch.com%2Fsexyguchitv&logo=twitch&logoColor=white&style=for-the-badge" alt="follow us!">
-</a>
-
-# LB-Google-Sheet-Data
+# LB-Google-Sheet-Data &middot; [![follow us!](https://img.shields.io/twitch/status/sexyguchitv?color=blueviolet&label=twitch.com%2Fsexyguchitv&logo=twitch&logoColor=white&style=for-the-badge)](https://twitch.tv/sexyguchitv) [![npm version](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=YT3SGBZ8NP6TL) 
 A plugin to get Google Sheet data on Lioran Board
 
 ### How to Install
